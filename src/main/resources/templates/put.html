@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form th:object="${customer}" th:action="@{/ubahPelanggan}" method="post">
+    <input type="text" id="id_pelanggan" th:field="*{id_pelanggan}" placeholder="ID Pelanggan" required>
+    <input type="text" id="email_pelanggan" th:field="*{email_pelanggan}" placeholder="Email Pelanggan" required>
+    <input type="text" id="password_pelanggan" th:field="*{password_pelanggan}" placeholder="Password Pelanggan">
+    <input type="text" id="nama_pelanggan" th:field="*{nama_pelanggan}" placeholder="Nama Pelanggan">
+    <input type="text" id="alamat_pelanggan" th:field="*{alamat_pelanggan}" placeholder="Alamat Pelanggan">
+    <button type="submit">Ubah Pelanggan</button>
+</form>
+
+
+</body>
+</html>

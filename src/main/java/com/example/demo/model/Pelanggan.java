@@ -13,6 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Pelanggan {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)

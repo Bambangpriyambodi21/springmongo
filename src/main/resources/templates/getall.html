@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/addPelanggan">Tambah Pelanggan</a>
+    <table id="result-container">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Nama</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="customer : ${customerList}">
+            <td th:text="${customer.id_pelanggan}">ID</td>
+            <td th:text="${customer.email_pelanggan}">Email</td>
+            <td th:text="${customer.nama_pelanggan}">Nama</td>
+            <td>
+                <a th:href="@{'/ubahPelanggan/'+${customer.id_pelanggan}}">Ubah</a>
+                <a th:href="@{'/pelanggan/'+${customer.id_pelanggan}}" >Hapus</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
+
