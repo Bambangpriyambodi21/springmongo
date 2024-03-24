@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,7 +21,17 @@ public class PelangganController {
     @PostMapping("/pelanggan")
     public ResponseEntity<?> create(@RequestBody Pelanggan pelanggan){
 
-        Pelanggan save = pelangganRepository.save(pelanggan);
+        UUID uuid = UUID.randomUUID();
+
+        Pelanggan build = Pelanggan.builder()
+                .id_pelanggan(String.valueOf(uuid))
+                .alamat_pelanggan(pelanggan.getAlamat_pelanggan())
+                .email_pelanggan(pelanggan.getEmail_pelanggan())
+                .nama_pelanggan(pelanggan.getNama_pelanggan())
+                .password_pelanggan(pelanggan.getPassword_pelanggan())
+                .build();
+
+        Pelanggan save = pelangganRepository.save(build);
 
         return ResponseEntity.status(HttpStatus.OK).body(save);
     }
