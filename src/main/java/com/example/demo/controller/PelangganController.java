@@ -3,10 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.model.Pelanggan;
 import com.example.demo.repository.PelangganRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.repository.Update;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +20,7 @@ public class PelangganController {
     @GetMapping("/addPelanggan")
     public String addPelanggan(Model model){
         model.addAttribute("customer", new Pelanggan());
-        return "post";
+        return "pelanggan/post";
     }
 
     @GetMapping("/ubahPelanggan/{id}")
@@ -39,7 +35,7 @@ public class PelangganController {
                 .build();
         model.addAttribute("customer", build);
 //        String update = update(build);
-        return "put";
+        return "pelanggan/put";
     }
 
     @PostMapping("/pelanggan")
@@ -68,7 +64,7 @@ public class PelangganController {
         model.addAttribute("customerList",all);
 
 //        return ResponseEntity.status(HttpStatus.OK).body(all);
-        return "getall";
+        return "pelanggan/getall";
     }
 
     @PostMapping("/ubahPelanggan")
