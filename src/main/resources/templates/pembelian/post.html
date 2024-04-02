@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form th:object="${pembelianrequest}" th:action="@{/pembelian}" method="post">
+    <input type="text" id="id_pelanggan" th:field="*{id_pelanggan}" placeholder="ID Pelanggan" required>
+<!--    <input type="datetime-local" id="tanggal_pembelian" th:field="*{tanggal_pembelian}" placeholder="Tanggal Pembelian">-->
+    <input type="text" id="total_pembelian" th:field="*{total_pembelian}" placeholder="Total Pembelian">
+    <button type="submit">Tambah Data Pembelian</button>
+</form>
+</body>
+</html>

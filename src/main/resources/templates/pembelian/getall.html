@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Data Pembelian</h1>
+    <a href="/addPembelian">Tambah Data Pembelian</a>
+    <table id="result-container" border="1">
+        <tr>
+            <th>ID Pembelian</th>
+            <th>ID Pelanggan</th>
+            <th>Tanggal Pembelian</th>
+            <th>Total Pembelian</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="pembelian : ${datapembelian}">
+            <td th:text="${pembelian.id_pembelian}">ID Pembelian</td>
+            <td th:text="${pembelian.id_pelanggan}">ID Pelanggan</td>
+            <td th:text="${pembelian.tanggal_pembelian}">Tanggal Pembelian</td>
+            <td th:text="${pembelian.total_pembelian}">Total Pembelian</td>
+            <td>
+                <a th:href="@{'/ubahPembelian/'+${pembelian.id_pembelian}}">Ubah</a>
+                <a th:href="@{'/pembelian/'+${pembelian.id_pembelian}}" >Hapus</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
+
